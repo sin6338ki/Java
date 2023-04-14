@@ -26,3 +26,6 @@
 5) ClientMain : 클라이언트 실행
  - 포트번호와 ip번호를 받아서 Socket 생성
  - WritingThread와 ListeningThread 객체 생성 후 실행(start();)
+
+https://danyoujeong.tistory.com/69
+---> 관련 이론 정리
