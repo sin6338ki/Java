@@ -1,0 +1,31 @@
+##멀티쓰레딩, Socket을 활용한 채팅프로그램 만들기
+
+총 5개의 클래스로 구성
+1) WritingThread : 클라이언트가 채팅을 작성하고, 작성한 채팅을 서버로 보냄
+ - socket을 매개변수로 받는 WritingThread
+ - run() : 아웃풋스트림을 생성하고, 콘솔창으로 입력받은 데이터를 아웃풋스트림을 통해 출력하는 기능
+   ---- socket.getOutputStream(); 아웃풋스트림생성
+   ---- PrintWriter(); 아웃품스트림으로 들어온 데이터 출력
+2) ListentThread : 다른 사용자들이 작성한 채팅을 받는 기능
+  - socket을 매개변수로 받는 ListeningThread
+  - run() : 인풋스트림을 생성하고, 인풋스트림으로부터 받은 데이터를 버퍼에 저장하고, 
+            버퍼에 저장된 데이터를 출력하는 기능 
+    ---- socket.getInputStream(); 인풋스트림 생성
+    ---- InputStreamReader(); 인풋스트림을 통해 들어온 데이터 읽기
+    ---- BufferedReader(); 읽은 데이터를 임시로 저장하는 공간
+3) Server : 서버
+ - 연결된 클라이언트 ArrayList에 저장
+ - Socket을 입력받으면 서버 생성하고 클라이언트별 소켓 정보 ArrayList에 저
+ - 클라이언트가 입력한 데이터 받기
+ - 받은 데이터를 클라이언트에게 보내기
+4) ServerMain : 서버 실행
+ - 포트 설정
+ - 서버 열기
+ - 소켓 받아서 Server 객체 생성
+ - Server 동작
+5) ClientMain : 클라이언트 실행
+ - 포트번호와 ip번호를 받아서 Socket 생성
+ - WritingThread와 ListeningThread 객체 생성 후 실행(start();)
+
+https://danyoujeong.tistory.com/69
+---> 관련 이론 정리
