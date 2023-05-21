@@ -13,7 +13,7 @@
 		Cookie[] cookies = request.getCookies();
 	
 		for(Cookie c : cookies){
-			//쿠키의 name, valu 화면에 출력
+			//쿠키의 name, value 화면에 출력
 			out.print(c.getName() + " : " + c.getValue() + "<br>");
 		}
 	%>
