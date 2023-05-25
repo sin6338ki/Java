@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : mapper - dao 매칭 -->
+<mapper namespace="WebMemberDAO">
+	<insert id="join" parameterType="com.smhrd.model.WebMember">
+	<!-- 필수 속성 : id(태그식별값) -->
+		<!-- #{가지고 올 자바 클래스의 필드명(DB 컬럼명이 아님! 헷갈리지 않도록 동일화하는게 좋음)} -->
+		insert into webmember values (#{email},#{pw},#{tel},#{address})
+	</insert>
+	
+	<select id="login" parameterType="com.smhrd.model.WebMember" resultType="com.smhrd.model.WebMember">
+	<!-- where 테이블컬럼명 = #{MyMember 객체 필드명} -->
+		select email, pw, tel, address from webmember where email=#{email} and pw=#{pw}
+	</select>
+	
+	<update id="update" parameterType="com.smhrd.model.WebMember">
+		update webmember set pw = #{pw}, tel = #{tel}, address = #{address} where email = #{email}
+	</update>
+</mapper>
